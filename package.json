@@ -1,0 +1,33 @@
+{
+  "name": "grunt-stylus-deps",
+  "description": "Generates dependency tree for Stylus files.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/alright/grunt-stylus-deps",
+  "author": {
+    "name": "Eugene Alright",
+    "email": "mail@alrightus.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alright/grunt-stylus-deps.git"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "underscore": "~1.4.4"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [
+    "gruntplugin",
+    "javascript",
+    "js",
+    "stylus",
+    "dependencies",
+    "dependency"
+  ]
+}
