@@ -16,8 +16,7 @@
     "node": ">= 0.8.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "underscore": "~1.4.4"
+    "grunt": "~0.4.1"
   },
   "peerDependencies": {
     "grunt": "~0.4.1"
@@ -29,5 +28,8 @@
     "stylus",
     "dependencies",
     "dependency"
-  ]
+  ],
+  "dependencies": {
+    "underscore": "~1.4.4"
+  }
 }
