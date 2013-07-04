@@ -1,7 +1,7 @@
 {
   "name": "grunt-stylus-deps",
   "description": "Generates dependency tree for Stylus files.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/alright/grunt-stylus-deps",
   "author": {
     "name": "Eugene Alright",

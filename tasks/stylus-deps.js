@@ -35,8 +35,7 @@ module.exports = function (grunt) {
 			grunt.warn('You must specify savedir option.');
 		}
 
-		grunt.util.async.forEachSeries(this.files, function(file, next) {
-			var destFile = path.normalize(file.dest);
+		grunt.util.async.forEachSeries(this.files, function (file, next) {
 			var srcFile = Array.isArray(file.src) ? file.src[0] : file.src;
 
 			if ( ! grunt.file.exists(srcFile)) {
@@ -58,12 +57,13 @@ module.exports = function (grunt) {
 
 	// Search for imports
 	var getImports = function (srcFile, options, callback) {
-		var regex = '@import "*([\\w/.\\s]+)"*';
+		var regex = '@import "*([^?*:;{}"]+)"*';
 
-		var fileData = fs.readFile(srcFile, function (err, data) {
+		fs.readFile(srcFile, function (err, data) {
 			var search = String(data).match(new RegExp(regex, 'g'));
 
 			if ( ! search) {
+				callback(null);
 				return;
 			}
 
@@ -89,18 +89,18 @@ module.exports = function (grunt) {
                         filename = filename +'.styl';
 
                         filename = path.join(item, filename);
-                        addDep(filename, deps);
+                        addDep(filename);
                     }
                 }
                 else {
-                    addDep(filename, deps);
+                    addDep(filename);
                 }
 			}
 
 			callback();
 		});
 
-        var addDep = function (filename, deps) {
+        var addDep = function (filename) {
             if (filename === 'nib') {
                 return;
             }
@@ -125,6 +125,7 @@ module.exports = function (grunt) {
 		}
 
 		if (_.isEmpty(deps)) {
+			grunt.log.ok('No deps are found');
 			return;
 		}
 
